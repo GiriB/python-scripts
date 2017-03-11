@@ -1,4 +1,5 @@
 ## Upper Quantile Normalization Code 
+[Take a look here](https://github.com/ucscXena/python-scripts/issues/1)
 
 ####Installation 
     pip install -r requirements
