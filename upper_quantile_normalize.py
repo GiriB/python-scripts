@@ -1,6 +1,6 @@
 import argparse,csv
 import numpy as np
-
+import os
 '''
 Finds the norm_count in the formula :
 	log2(norm_count + pseudo_count) = Y
@@ -127,5 +127,7 @@ if __name__ == '__main__':
 		mat[:,i:i+1] = column
 		
 	#Save the final matrix and UQ per column in a file 
+	print("Writing to UQMatrix ...")
 	np.savetxt('UQmatrix', mat)
+	print("Writing to UQColumns ...")
 	write_uqfile('UQcolumns',UQ_values,cols)
