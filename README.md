@@ -1,15 +1,31 @@
 ## Upper Quantile Normalization Code 
 [Take a look here](https://github.com/ucscXena/python-scripts/issues/1)
 
-####Installation 
+#### Installation 
     pip install -r requirements
 
-####Run
+#### Run
     python upper_quantile_normalize.py --genefile GENEFILE --genmatfile GENEMATRIXFLE
 
-####Sample files 
+This generates two files `UQmatrix` and `UQcolumns` to the same directory.
+
+#### Sample files 
 
 For GENEFILE - use `genefile` from the code repo. It contains the genes from the first column of [this]( https://github.com/ucscXena/python-scripts/blob/master/geneLists/GTEX_TCGA_genes).
 For GENEMATRIXFLE - download the dataset from  [here](http://ec2-52-23-185-93.compute-1.amazonaws.com/datapages/?dataset=TCGA.COAD.sampleMap/HiSeqV2&host=https://tcga.xenahubs.net)
 
 **Note:** The script is Python3 compatible :)
+
+### Using Docker 
+#### Build 
+    docker -t ucsc-python .
+    
+#### Run
+    docker run ucsc-python
+
+#### Getting the results 
+Currently, the output files (`UQmatrix` and `UQcolumns`) are written into the container. To get them in 
+the current directory, use -
+
+    docker cp {containerid}:/UQmatrix $(pwd)
+    docker cp {containerid}:/UQcolumns $(pwd)
