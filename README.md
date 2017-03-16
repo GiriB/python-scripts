@@ -22,10 +22,15 @@ For GENEMATRIXFLE - download the dataset from  [here](http://ec2-52-23-185-93.co
     
 #### Run
     docker run ucsc-python
+    
 
 #### Getting the results 
-Currently, the output files (`UQmatrix` and `UQcolumns`) are written into the container. To get them in 
-the current directory, use -
+The output files(`UQmatrix` and `UQcolumns`) are written to `/output` in the container. 
+To get them in any directory on the host machine, use -
 
-    docker cp {containerid}:/UQmatrix $(pwd)
-    docker cp {containerid}:/UQcolumns $(pwd)
+    docker run -v /absolute/path/to/directory:/output ucsc-python
+
+For example, to get the results in the current directory -
+
+    docker run -v $(pwd):/output ucsc-python
+  
